@@ -1,0 +1,55 @@
+<?php
+if (!defined("SYMROOT")) {
+    define("SYMROOT", "/opt/symfony");
+}
+
+require_once SYMROOT . '/vendor/symfony/symfony/src/Symfony/Component/ClassLoader/UniversalClassLoader.php';
+require_once SYMROOT . '/vendor/doctrine/common/lib/Doctrine/Common/Annotations/AnnotationRegistry.php';
+
+use Doctrine\Common\Annotations\AnnotationRegistry;
+use Symfony\Component\ClassLoader\UniversalClassLoader;
+
+$loader = new UniversalClassLoader(); 
+
+$loader->registerNamespaces(array(
+    'Metadata'         => SYMROOT . '/vendor/jms/metadata/src',
+    'Symfony'          => array(SYMROOT . '/vendor/symfony/symfony/src',
+    							SYMROOT . '/vendor/symfony/monolog-bundle',
+    							SYMROOT . '/vendor/symfony/assetic-bundle',
+    							SYMROOT . '/vendor/symfony/swiftmailer-bundle'),
+    'Sensio'           => array(SYMROOT . '/vendor/sensio/framework-extra-bundle',
+                                SYMROOT . '/vendor/sensio/generator-bundle',
+                                SYMROOT . '/vendor/sensio/distribution-bundle'),
+    'CG'               => SYMROOT . '/vendor/jms/cg/src',
+    'JMS'              => array(SYMROOT . '/vendor/jms/di-extra-bundle',
+    							SYMROOT . '/vendor/jms/aop-bundle',
+                                SYMROOT . '/vendor/jms/parser-lib',
+                                SYMROOT . '/vendor/jms/security-extra-bundle'),
+    'Doctrine\\Common' => SYMROOT . '/vendor/doctrine/common/lib',
+    'Doctrine\\DBAL'   => SYMROOT . '/vendor/doctrine/dbal/lib',
+    'Doctrine\\ORM'    => SYMROOT . '/vendor/doctrine/orm/lib',
+    'Doctrine'         => SYMROOT . '/vendor/doctrine/doctrine-bundle',
+    'Psr'              => SYMROOT . '/vendor/psr/log',
+    'Monolog'          => SYMROOT . '/vendor/monolog/monolog/src',
+    'Assetic'          => SYMROOT . '/vendor/assetic/src',
+    'Metadata'         => SYMROOT . '/vendor/metadata/src',
+));
+$loader->registerPrefixes(array(
+    'Twig_Extensions_' => SYMROOT . '/vendor/twig/extensions/lib',
+    'Twig_'            => SYMROOT . '/vendor/twig/twig/lib',
+));
+
+$loader->registerNamespaceFallbacks(array(
+    '/vagrant/src',
+));
+
+$loader->register();
+
+// intl
+if (!function_exists('intl_get_error_code')) {
+    require_once __DIR__.'/../vendor/symfony/symfony/src/Symfony/Component/Locale/Resources/stubs/functions.php';
+}
+
+AnnotationRegistry::registerLoader(array($loader, 'loadClass'));
+
+return $loader;

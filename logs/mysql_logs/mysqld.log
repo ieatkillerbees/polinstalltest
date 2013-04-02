@@ -1,0 +1,26 @@
+130401 11:02:06 mysqld_safe Starting mysqld daemon with databases from /var/lib/mysql
+130401 11:02:06  InnoDB: Initializing buffer pool, size = 8.0M
+130401 11:02:06  InnoDB: Completed initialization of buffer pool
+130401 11:02:06  InnoDB: Started; log sequence number 0 44233
+/usr/libexec/mysqld: File '/vagrant/logs/mysql_logs/slow-queries' not found (Errcode: 13)
+130401 11:02:06 [ERROR] Could not use /vagrant/logs/mysql_logs/slow-queries for logging (error 13). Turning logging off for the whole duration of the MySQL server process. To turn it on again: fix the cause, shutdown the MySQL server and restart it.
+130401 11:02:06 [Note] Event Scheduler: Loaded 0 events
+130401 11:02:06 [Note] /usr/libexec/mysqld: ready for connections.
+Version: '5.1.67-log'  socket: '/var/lib/mysql/mysql.sock'  port: 3306  Source distribution
+130401 11:03:46 [Note] /usr/libexec/mysqld: Normal shutdown
+
+130401 11:03:46 [Note] Event Scheduler: Purging the queue. 0 events
+130401 11:03:46  InnoDB: Starting shutdown...
+130401 11:03:47  InnoDB: Shutdown completed; log sequence number 0 44233
+130401 11:03:47 [Note] /usr/libexec/mysqld: Shutdown complete
+
+130401 11:03:47 mysqld_safe mysqld from pid file /var/run/mysqld/mysqld.pid ended
+130402 09:38:20 mysqld_safe Starting mysqld daemon with databases from /var/lib/mysql
+130402  9:38:20  InnoDB: Initializing buffer pool, size = 8.0M
+130402  9:38:20  InnoDB: Completed initialization of buffer pool
+130402  9:38:20  InnoDB: Started; log sequence number 0 44233
+/usr/libexec/mysqld: File '/vagrant/logs/mysql_logs/slow-queries' not found (Errcode: 13)
+130402  9:38:20 [ERROR] Could not use /vagrant/logs/mysql_logs/slow-queries for logging (error 13). Turning logging off for the whole duration of the MySQL server process. To turn it on again: fix the cause, shutdown the MySQL server and restart it.
+130402  9:38:20 [Note] Event Scheduler: Loaded 0 events
+130402  9:38:20 [Note] /usr/libexec/mysqld: ready for connections.
+Version: '5.1.67-log'  socket: '/var/lib/mysql/mysql.sock'  port: 3306  Source distribution
